@@ -6,3 +6,6 @@ Content-type: application/json
     "description": "Video sobre nodejs",
     "duration": 200
 }
+
+###
+GET http://localhost:3000/videos
