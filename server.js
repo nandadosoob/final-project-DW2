@@ -48,6 +48,8 @@ server.post("/usuarios", async (request, reply) => {
   // Desestrutura os dados do corpo da requisição
   const { nome, email, celular } = request.body;
 
+
+
   // Chama o método create do banco de dados para inserir um novo vídeo
   await database.create({
     nome: nome,

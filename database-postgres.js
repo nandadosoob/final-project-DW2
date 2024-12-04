@@ -7,11 +7,11 @@ export class DatabasePostgres {
     let usuarios;
 
     if (search) {
-      usuarios = await sql`select * from videos where title ilike ${
+      usuarios = await sql`select * from usuarios where title ilike ${
         "%" + search + "%"
       }`;
     } else {
-      usuarios = await sql`select * from videos`;
+      usuarios = await sql`select * from usuarios`;
     }
 
     return usuarios;
@@ -19,18 +19,18 @@ export class DatabasePostgres {
 
   async create(usuario) {
     const usuarioId = randomUUID();
-    const { title, description, duration } = usuario;
+    const { nome, email, celular } = usuario;
 
-    await sql`insert into videos (id, title, description, duration) VALUES (${usuarioId}, ${title}, ${description}, ${duration})`;
+    await sql`insert into usuarios (id, nome, email, celular) VALUES (${usuarioId}, ${nome}, ${email}, ${celular})`;
   }
 
   async update(id, usuario) {
-    const { title, description, duration } = usuario;
+    const { nome, email, celular } = usuario;
 
-    await sql`update videos set title = ${title}, description = ${description}, duration = ${duration} WHERE id = ${id}`;
+    await sql`update usuarios set nome = ${nome}, email = ${email}, celular = ${celular} WHERE id = ${id}`;
   }
 
   async delete(id) {
-    await sql`delete from videos where id = ${id}`;
+    await sql`delete from usuarios where id = ${id}`;
   }
 }

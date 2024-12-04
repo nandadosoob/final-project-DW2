@@ -1,11 +1,19 @@
-POST http://localhost:3000/videos
+
+
+GET http://localhost:3333/usuarios
+
+
+###
+
+POST http://localhost:3333/usuarios
 Content-type: application/json
 
 {
-    "title": "Video 01",
-    "description": "Video sobre nodejs",
-    "duration": 200
+    "nome": "Jose",
+    "email": "jose@gmail.com",
+    "celular": "1234"
 }
 
-###
-GET http://localhost:3000/videos
+### 
+
+DE
