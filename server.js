@@ -38,6 +38,11 @@ await server.register(cors, {
 // Instancia o banco de dados PostgreSQL
 const database = new DatabasePostgres();
 
+
+server.get("/", () => {
+  return "Seja bem vindo a API da Moda"
+})
+
 // Rota para criar um novo usuário (POST)
 server.post("/usuarios", async (request, reply) => {
   // Desestrutura os dados do corpo da requisição
