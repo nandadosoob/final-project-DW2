@@ -44,17 +44,21 @@ server.get("/", () => {
 })
 
 // Rota para criar um novo usuário (POST)
-server.post("/usuarios", async (request, reply) => {
+server.post("/encomendas", async (request, reply) => {
   // Desestrutura os dados do corpo da requisição
-  const { nome, email, celular } = request.body;
+  // const { id, cliente, estilista } = request.body;
+  const { id, cliente, estilista, tipoEncomenda, horarioPedido, valor } = request.body;
 
 
 
   // Chama o método create do banco de dados para inserir um novo vídeo
   await database.create({
-    nome: nome,
-    email: email,
-    celular: celular,
+    id: id,
+    cliente: cliente,
+    estilista: estilista,
+    tipoEncomenda: tipoEncomenda,
+    horarioPedido: horarioPedido,
+    valor: valor
   });
 
   // Retorna uma resposta de sucesso com código 201 (Created)
@@ -62,30 +66,33 @@ server.post("/usuarios", async (request, reply) => {
 });
 
 // Rota para listar usuários (GET)
-server.get("/usuarios", async (request, reply) => {                                    
+server.get("/encomendas", async (request, reply) => {
   // Extrai o parâmetro de busca da query da URL
-  const { nome } = request.query
-  
+  const { id } = request.query
+
   // Chama o método list do banco de dados, passando o termo de busca
-  const usuarios = await database.list(nome);
+  const encomendas = await database.list(id);
 
-  reply.send(usuarios)
+  reply.send(encomendas)
 
-  
+
 });
 
 // Rota para atualizar um vídeo existente (PUT)
-server.put("/usuarios/:id", async (request, reply) => {
+server.put("/encomendas/:id", async (request, reply) => {
   // Obtém o ID do usuário a ser atualizado a partir dos parâmetros da URL
-  const usuarioId = request.params.id;
+  const encomendaId = request.params.id;
   // Desestrutura os novos dados do usuário do corpo da requisição
-  const { nome, email, celular } = request.body;
+  const { id, cliente, estilista, tipoEncomenda, horarioPedido, valor } = request.body;
 
   // Chama o método update do banco de dados
-  await database.update(usuarioId, {
-    nome,
-    email,
-    celular,
+  await database.update(encomendaId, {
+    id,
+    cliente,
+    estilista,
+    tipoEncomenda,
+    horarioPedido,
+    valor
   });
 
   // Retorna uma resposta de sucesso sem conteúdo (204 No Content)
@@ -93,24 +100,24 @@ server.put("/usuarios/:id", async (request, reply) => {
 });
 
 // Rota para excluir um usuário (DELETE)
-server.delete("/usuarios/:id", async (request, reply) => {
+server.delete("/encomendas/:id", async (request, reply) => {
   // Obtém o ID do vídeo a ser excluído a partir dos parâmetros da URL
-  const usuarioId = request.params.id;
+  const encomendaId = request.params.id;
 
   // Chama o método delete do banco de dados
-  await database.delete(usuarioId);
+  await database.delete(encomendaId);
   // Retorna uma resposta de sucesso sem conteúdo (204 No Content)
   return reply.status(204).send();
 });
 
 // Inicia o servidor
 server.listen(
-  { 
+  {
     // Configura para escutar em todos os endereços de rede
     host: "0.0.0.0",
     // Usa a porta definida no .env ou usa a porta 3333 como padrão
-    port: process.env.PORT ?? 3333 
-  }, 
+    port: process.env.PORT ?? 3333
+  },
   // Callback de inicialização do servidor
   function (err, address) {
     // Em caso de erro, registra o erro e encerra o processo

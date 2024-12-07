@@ -4,33 +4,33 @@ import { sql } from "./db.js";
 export class DatabasePostgres {
     
   async list(search) {
-    let usuarios;
+    let encomendas;
 
     if (search) {
-      usuarios = await sql`select * from usuarios where title ilike ${
+      encomendas = await sql`select * from encomendas where title ilike ${
         "%" + search + "%"
       }`;
     } else {
-      usuarios = await sql`select * from usuarios`;
+      encomendas = await sql`select * from encomendas`;
     }
 
-    return usuarios;
+    return encomendas;
   }
 
-  async create(usuario) {
-    const usuarioId = randomUUID();
-    const { nome, email, celular } = usuario;
+  async create(encomenda) {
+    const encomendaId = randomUUID();
+    const { id, cliente, estilista, tipoEncomenda, horarioPedido, valor } = encomenda;
 
-    await sql`insert into usuarios (id, nome, email, celular) VALUES (${usuarioId}, ${nome}, ${email}, ${celular})`;
+    await sql`insert into encomendas (id, cliente, estilista, tipoEncomenda, horariopedido, valor) VALUES (${encomendaId}, ${id}, ${cliente}, ${estilista}, ${tipoEncomenda}, ${horarioPedido}, ${valor})`;
   }
 
-  async update(id, usuario) {
-    const { nome, email, celular } = usuario;
+  async update(id, encomenda) {
+    const { cliente, estilista, tipoEncomenda, horarioPedido, valor } = encomenda;
 
-    await sql`update usuarios set nome = ${nome}, email = ${email}, celular = ${celular} WHERE id = ${id}`;
+    await sql`update encomendas set id = ${id}, cliente = ${cliente}, estilista = ${estilista}, tipoEncomenda = ${tipoEncomenda}, horarioPedido = ${horarioPedido}, valor = ${valor} WHERE id = ${id}`;
   }
 
   async delete(id) {
-    await sql`delete from usuarios where id = ${id}`;
+    await sql`delete from encomendas where id = ${id}`;
   }
 }

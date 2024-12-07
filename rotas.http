@@ -1,31 +1,39 @@
 
 
-GET https://final-project-dw2.onrender.com/usuarios
+# GET https://final-project-dw2.onrender.com/usuarios
+GET https://final-project-dw2.onrender.com/encomendas
 
 
 ###
 
-POST https://final-project-dw2.onrender.com/usuarios
+# POST https://final-project-dw2.onrender.com/usuarios
+POST https://final-project-dw2.onrender.com/encomendas
 Content-type: application/json
 
 {
-    "nome": "Maria",
-    "email": "maria@gmail.com",
-    "celular": "1234555"
+    "cliente": "Maria",
+    "estilista": "maria@gmail.com",
+    "tipoEncomenda": "1234555",
+    "horarioPedido": "011024",
+    "valor": "120,00"
 }
 
 ### 
 
-DELETE https://final-project-dw2.onrender.com/usuarios/980bb7d3-ddc1-45e9-a35f-187841de5501
+DELETE https://final-project-dw2.onrender.com/encomendas/980bb7d3-ddc1-45e9-a35f-187841de5501
+# DELETE https://final-project-dw2.onrender.com/usuarios/980bb7d3-ddc1-45e9-a35f-187841de5501
 
 
 ###
 
-PUT https://final-project-dw2.onrender.com/usuarios/20a9a3f5-36a8-47b1-b8c0-7019520c84ec
+PUT https://final-project-dw2.onrender.com/encomendas/20a9a3f5-36a8-47b1-b8c0-7019520c84ec
+# PUT https://final-project-dw2.onrender.com/usuarios/20a9a3f5-36a8-47b1-b8c0-7019520c84ec
 Content-type: application/json
 
 {
-    "nome": "Maria 2",
-    "email": "maria2@gmail.com",
-    "celular": "555"
+    "cliente": "Maria 2",
+    "estilista": "maria2@gmail.com",
+    "tipoEncomenda": "555",
+    "horarioPedido": "220723",
+    "valor": "200,00"
 }
