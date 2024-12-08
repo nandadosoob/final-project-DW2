@@ -1,9 +1,9 @@
 import {sql} from './db.js'
 
 sql`
-    DROP TABLE ID EXISTS encomendas;
+    DROP TABLE IF EXISTS encomendas;
 `.then (()=>{
-    consol.log("TABELA EXCLUIDA")
+    console.log("TABELA EXCLUIDA")
 })
 
 
@@ -20,12 +20,12 @@ sql`
 
 sql`
     CREATE TABLE encomendas (
-        id              TEXT PRIMARY KEY,
+        id              VARCHAR(50)  PRIMARY KEY,
         cliente         VARCHAR(150),
         estilista       VARCHAR(150),
         tipoEncomenda   VARCHAR(250),
-        horarioPedido   DATETIME,
-        valor           MONEY
+        horarioPedido   TIMESTAMP,
+        valor           NUMERIC(10, 2)
     );
 ` .then(()=> {
     console.log("TABELA CRIADA")

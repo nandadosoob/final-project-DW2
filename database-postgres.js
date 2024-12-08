@@ -7,7 +7,7 @@ export class DatabasePostgres {
     let encomendas;
 
     if (search) {
-      encomendas = await sql`select * from encomendas where title ilike ${
+      encomendas = await sql`select * from encomendas where cliente ilike ${
         "%" + search + "%"
       }`;
     } else {
@@ -19,9 +19,11 @@ export class DatabasePostgres {
 
   async create(encomenda) {
     const encomendaId = randomUUID();
-    const { id, cliente, estilista, tipoEncomenda, horarioPedido, valor } = encomenda;
+    const { cliente, estilista, tipoEncomenda, horarioPedido, valor } = encomenda;
 
-    await sql`insert into encomendas (id, cliente, estilista, tipoEncomenda, horariopedido, valor) VALUES (${encomendaId}, ${id}, ${cliente}, ${estilista}, ${tipoEncomenda}, ${horarioPedido}, ${valor})`;
+    await sql`insert into encomendas (id, cliente, estilista, tipoEncomenda, horarioPedido, valor) VALUES (${encomendaId}, ${cliente}, ${estilista}, ${tipoEncomenda}, ${horarioPedido}, ${valor})`;
+    // console.log("deu")
+
   }
 
   async update(id, encomenda) {

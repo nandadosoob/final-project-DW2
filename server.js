@@ -47,13 +47,12 @@ server.get("/", () => {
 server.post("/encomendas", async (request, reply) => {
   // Desestrutura os dados do corpo da requisição
   // const { id, cliente, estilista } = request.body;
-  const { id, cliente, estilista, tipoEncomenda, horarioPedido, valor } = request.body;
+  const { cliente, estilista, tipoEncomenda, horarioPedido, valor } = request.body;
 
 
 
   // Chama o método create do banco de dados para inserir um novo vídeo
   await database.create({
-    id: id,
     cliente: cliente,
     estilista: estilista,
     tipoEncomenda: tipoEncomenda,
@@ -68,10 +67,10 @@ server.post("/encomendas", async (request, reply) => {
 // Rota para listar usuários (GET)
 server.get("/encomendas", async (request, reply) => {
   // Extrai o parâmetro de busca da query da URL
-  const { id } = request.query
+  const { cliente } = request.query
 
   // Chama o método list do banco de dados, passando o termo de busca
-  const encomendas = await database.list(id);
+  const encomendas = await database.list(cliente);
 
   reply.send(encomendas)
 
@@ -83,11 +82,11 @@ server.put("/encomendas/:id", async (request, reply) => {
   // Obtém o ID do usuário a ser atualizado a partir dos parâmetros da URL
   const encomendaId = request.params.id;
   // Desestrutura os novos dados do usuário do corpo da requisição
-  const { id, cliente, estilista, tipoEncomenda, horarioPedido, valor } = request.body;
+  const { cliente, estilista, tipoEncomenda, horarioPedido, valor } = request.body;
 
   // Chama o método update do banco de dados
   await database.update(encomendaId, {
-    id,
+
     cliente,
     estilista,
     tipoEncomenda,
