@@ -11,13 +11,13 @@ GET https://final-project-dw2.onrender.com/encomendas
 POST https://final-project-dw2.onrender.com/encomendas
 Content-type: application/json
 
-{
-    "cliente": "Maria",
-    "estilista": "alexander mcqueen",
-    "tipoEncomenda": "vestido",
-    "horarioPedido": "2004-10-19 10:23:54",
-    "valor": 120.00
-}
+# {
+#     "cliente": "Maria",
+#     "estilista": "alexander mcqueen",
+#     "tipoEncomenda": "vestido",
+#     "horarioPedido": "2004-10-19 10:23:54",
+#     "valor": 120.00
+# }
 
 ### 
 
