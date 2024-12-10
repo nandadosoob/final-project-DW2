@@ -11,6 +11,13 @@ GET https://final-project-dw2.onrender.com/encomendas
 POST https://final-project-dw2.onrender.com/encomendas
 Content-type: application/json
 
+
+### 
+
+### deleta
+DELETE https://final-project-dw2.onrender.com/encomendas/{id}
+# DELETE https://final-project-dw2.onrender.com/usuarios/980bb7d3-ddc1-45e9-a35f-187841de5501
+
 # {
 #     "cliente": "Maria",
 #     "estilista": "alexander mcqueen",
@@ -18,13 +25,6 @@ Content-type: application/json
 #     "horarioPedido": "2004-10-19 10:23:54",
 #     "valor": 120.00
 # }
-
-### 
-
-### deleta
-DELETE https://final-project-dw2.onrender.com/encomendas/980bb7d3-ddc1-45e9-a35f-187841de5501
-# DELETE https://final-project-dw2.onrender.com/usuarios/980bb7d3-ddc1-45e9-a35f-187841de5501
-
 
 ###
 
