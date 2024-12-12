@@ -47,7 +47,7 @@ server.get("/", () => {
 server.post("/encomendas", async (request, reply) => {
   // Desestrutura os dados do corpo da requisição
   // const { id, cliente, estilista } = request.body;
-  const { cliente, estilista, tipoEncomenda, horarioPedido, valor } = request.body;
+  const { cliente, estilista, tipoEncomenda, valor } = request.body;
 
 
 
@@ -56,7 +56,7 @@ server.post("/encomendas", async (request, reply) => {
     cliente: cliente,
     estilista: estilista,
     tipoEncomenda: tipoEncomenda,
-    horarioPedido: horarioPedido,
+    horarioPedido: Date.now(),
     valor: valor
   });
 
