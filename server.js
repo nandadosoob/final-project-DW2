@@ -72,7 +72,8 @@ server.get("/encomendas", async (request, reply) => {
   // Chama o método list do banco de dados, passando o termo de busca
   const encomendas = await database.list(cliente);
 
-  reply.send(encomendas)
+  reply.json(encomendas)
+  // reply.send(encomendas)
 
 
 });
