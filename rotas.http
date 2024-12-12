@@ -29,7 +29,7 @@ DELETE https://final-project-dw2.onrender.com/encomendas/{id}
 
 ### atualiza
 PUT https://final-project-dw2.onrender.com/encomendas/{id}
-# PUT https://final-project-dw2.onrender.com/usuarios/20a9a3f5-36a8-47b1-b8c0-7019520c84ec
+
 Content-type: application/json
 
 # {
