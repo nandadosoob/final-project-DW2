@@ -87,11 +87,11 @@ server.put("/encomendas/:id", async (request, reply) => {
 
   // Chama o método update do banco de dados
   await database.update(encomendaId, {
-
-    cliente,
-    estilista,
-    tipoEncomenda,
-    valor
+    cliente: cliente,
+    estilista: estilista,
+    tipoEncomenda: tipoEncomenda,
+    horarioPedido: Date.now(),
+    valor: valor
   });
 
   // Retorna uma resposta de sucesso sem conteúdo (204 No Content)

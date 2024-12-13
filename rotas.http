@@ -10,11 +10,12 @@ GET https://final-project-dw2.onrender.com/encomendas
 # POST https://final-project-dw2.onrender.com/usuarios
 POST https://final-project-dw2.onrender.com/encomendas
 Content-type: application/json
+
 {
-    "cliente":{cliente},
-    "estilista": {estilista},
-    "tipoEncomenda": {tipoEncomenda},
-    "valor": {valor}
+    "cliente":"teste",
+    "estilista": "teste",
+    "tipoEncomenda": "teste",
+    "valor": 100
 }
 
 
@@ -28,14 +29,12 @@ DELETE https://final-project-dw2.onrender.com/encomendas/{id}
 ###
 
 ### atualiza
-PUT https://final-project-dw2.onrender.com/encomendas/{id}
-
+PUT https://final-project-dw2.onrender.com/encomendas/c8dedf6d-6cdd-4f93-94c1-551f22dc8b46
 Content-type: application/json
 
-# {
-#     "cliente": "Maria 2",
-#     "estilista": "maria2@gmail.com",
-#     "tipoEncomenda": "555",
-#     "horarioPedido": "220723",
-#     "valor": "200,00"
-# }
+{
+    "cliente": "giovana 2",
+    "estilista": "John Galliano",
+    "tipoEncomenda": "calça pantalona de oncinha",
+    "valor": "10000.00"
+}
