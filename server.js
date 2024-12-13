@@ -61,7 +61,7 @@ server.post("/encomendas", async (request, reply) => {
   });
 
   // Retorna uma resposta de sucesso com código 201 (Created)
-  return reply.status(201).send();
+  return reply.status(204).send();
 });
 
 // Rota para listar usuários (GET)
